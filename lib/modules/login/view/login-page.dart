@@ -36,7 +36,15 @@ class _LoginPageViewState extends State<LoginPageView> {
             ),
           ),
           SizedBox(height: 20),
-          Text("Loading ...")
+          Text("Loading ..."),
+          SizedBox(height: 20),
+          controller!.retry
+              ? ElevatedButton(
+                  child: Text("Retry".toUpperCase(),
+                      style: TextStyle(fontSize: 14)),
+                  onPressed: () => {},
+                )
+              : Container()
         ],
       ),
     );

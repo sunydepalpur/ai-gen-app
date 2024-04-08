@@ -7,16 +7,15 @@ import 'package:uuid/uuid.dart';
 
 class LoginPageController extends GetxController {
   final dio = Dio();
+  bool retry = false;
   @override
   void onInit() {
     super.onInit();
-    print("object");
   }
 
   @override
   void onReady() {
     super.onReady();
-    print("object");
   }
 
   @override
@@ -41,7 +40,9 @@ class LoginPageController extends GetxController {
       Get.toNamed('/home');
     } catch (e) {
       print(e.toString());
-      GlobalSnackbar.getErrorSnackbar('Login/Sign Up Failed');
+      GlobalSnackbar.getErrorSnackbar(
+          'Login/Sign Up Failed, please try again.');
+      retry = true;
     }
   }
 }
