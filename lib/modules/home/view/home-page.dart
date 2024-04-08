@@ -13,8 +13,10 @@ class HomePageView extends GetView<HomePageController> {
         margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            border:
-                Border.all(color: Theme.of(context).primaryColor, width: 3)),
+            border: Border.all(
+                color:
+                    primaryType ? Theme.of(context).primaryColor : Colors.grey,
+                width: 3)),
         child: GestureDetector(
           onTap: () {
             controller.boy = !controller.boy;
@@ -61,15 +63,10 @@ class HomePageView extends GetView<HomePageController> {
                       onPressed: () => {},
                       child: Text("Start"),
                       style: ButtonStyle(
-                        foregroundColor:
-                            MaterialStateProperty.all(Colors.black),
-                        backgroundColor: (controller.boy ||
-                                controller.girl ||
-                                controller.non_binary)
-                            ? MaterialStateProperty.all(
-                                Theme.of(context).primaryColor)
-                            : MaterialStateProperty.all(Colors.grey),
-                      ),
+                          foregroundColor:
+                              MaterialStateProperty.all(Colors.black),
+                          backgroundColor: MaterialStateProperty.all(
+                              Theme.of(context).primaryColor)),
                     )),
               )
             ],
